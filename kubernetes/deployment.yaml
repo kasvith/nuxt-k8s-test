@@ -8,6 +8,7 @@ spec:
       app: front
       tier: frontend
       track: stable
+  replicas: 2
   template:
     metadata:
       labels:

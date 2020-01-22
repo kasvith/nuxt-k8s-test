@@ -11,5 +11,9 @@ spec:
         paths:
           - path: /
             backend:
+              serviceName: front
+              servicePort: 3000
+          - path: /chat
+            backend:
               serviceName: chat
               servicePort: 3000

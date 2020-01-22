@@ -110,6 +110,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'No Inspire',
           to: '/noinst'
+        },
+        {
+          icon: 'mdi-message-text-outline',
+          title: 'Chat',
+          to: '/chat'
         }
       ],
       miniVariant: false,

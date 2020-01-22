@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: front
 spec:
   selector:
-    app: frontend
+    app: front
     tier: frontend
+    track: stable
   ports:
     - protocol: TCP
       port: 3000

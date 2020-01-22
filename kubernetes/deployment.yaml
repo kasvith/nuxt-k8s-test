@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: front
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: front
       tier: frontend
       track: stable
   template:
     metadata:
       labels:
-        app: frontend
+        app: front
         tier: frontend
         track: stable
     spec:
       containers:
-        - name: frontend
+        - name: front
           image: kasvith/nuxt-test:latest
           resources:
             limits:

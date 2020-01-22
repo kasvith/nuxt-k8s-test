@@ -1,16 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: chat-ingress
+  name: my-ingress
   annotations:
     nginx.org/websocket-services: "chat"
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "public"
 spec:
   rules:
     - http:
         paths:
-          - path: /front
+          - path: /
             backend:
-              serviceName: frontend
+              serviceName: chat
               servicePort: 3000

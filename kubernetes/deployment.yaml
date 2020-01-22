@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: frontend
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: frontend
+          image: kasvith/nuxt-test:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000

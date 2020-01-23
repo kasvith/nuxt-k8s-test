@@ -18,11 +18,11 @@ spec:
     spec:
       containers:
         - name: front
-          image: kasvith/nuxt-test:latest
+          image: kasvith/nuxt-test:${GIT_COMMIT}
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 80

@@ -1,16 +1,11 @@
-FROM node:10.7
-
-ENV APP_ROOT /src
-
-RUN mkdir ${APP_ROOT}
-WORKDIR ${APP_ROOT}
-ADD . ${APP_ROOT}
-
+FROM node:lts AS builder
+WORKDIR /src
+COPY package*.json .
 RUN npm install
-RUN npm run build
+COPY . .
+RUN npm run generate
 
-EXPOSE 3000
-
-ENV HOST=0.0.0.0
-
-ENTRYPOINT [ "npm", "run", "start" ]
+FROM nginx:latest
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /src/dist /usr/share/nginx/html
+EXPOSE 80

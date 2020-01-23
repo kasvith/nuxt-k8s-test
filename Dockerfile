@@ -1,6 +1,6 @@
 FROM node:lts AS builder
 WORKDIR /src
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run generate

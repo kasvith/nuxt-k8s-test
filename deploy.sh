@@ -11,7 +11,9 @@ docker push $IMAGE
 
 echo Creating deployment
 
-envsubst < kubernetes/deployment.tmpl > kubernetes/deployment.yaml
-rm kubernetes/deployment.tmpl
+rm -rf k8sdeploy
+mkdir k8sdeploy
+envsubst < kubernetes/deployment.tmpl > k8sdeploy/deployment.yaml
+cp kubernetes/*.yaml k8sdeploy
 
-kubectl apply -f ./kubernetes
+kubectl apply -f ./k8sdeploy
